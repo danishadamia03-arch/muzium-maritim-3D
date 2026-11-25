@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Muzium Maritim 3D: Dinasti Ming & Empayar Uthmaniyah</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      overflow: hidden;
+      background: #0b2242;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: #f8fafc;
+    }
+    #hud {
+      position: fixed;
+      top: 14px;
+      left: 14px;
+      right: 14px;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      pointer-events: none;
+      gap: 12px;
+    }
+    .hud-card {
+      background: rgba(11, 34, 66, 0.92);
+      border: 1px solid rgba(212, 175, 55, 0.7);
+      border-radius: 10px;
+      padding: 10px 14px;
+      pointer-events: auto;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+    }
+    #zone-indicator {
+      font-weight: 700;
+      font-size: 14px;
+      color: #fde68a;
+      margin-bottom: 6px;
+    }
+    #nav-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .nav-btn {
+      background: #166953;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 6px;
+      padding: 5px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .nav-btn:hover {
+      background: #d96b27;
+    }
+    .nav-btn.home-btn {
+      background: #9e1b24;
+    }
+    .nav-btn.home-btn:hover {
+      background: #c22732;
+    }
+    #controls-help {
+      font-size: 12px;
+      line-height: 1.45;
+      color: #e2e8f0;
+      max-width: 390px;
+    }
+    #controls-help strong {
+      color: #fde68a;
+    }
+  </style>
+</head>
+<body>
+  <div id="hud">
+    <div class="hud-card">
+      <div id="zone-indicator">Zon 1: Lobi Utama (Mula di Sini)</div>
+      <div id="nav-buttons">
+        <button class="nav-btn home-btn" onclick="teleportTo('lobby')">🏠 Kembali ke Lobi</button>
+        <button class="nav-btn" onclick="teleportTo('zon2')">← Zon 2: Zheng He</button>
+        <button class="nav-btn" onclick="teleportTo('zon3')">Zon 3: Uthmaniyah →</button>
+        <button class="nav-btn" onclick="teleportTo('zon4')">↑ Zon 4: Perbandingan</button>
+      </div>
+    </div>
+    <div class="hud-card" id="controls-help">
+      <div><strong>Panduan Navigasi & Urutan Pameran:</strong></div>
+      <div><strong>[↑] / [↓]</strong> : Jalan ke hadapan / belakang &nbsp;|&nbsp; <strong>[←] / [→]</strong> : Pusing kiri / kanan</div>
+      <div><strong>Susunan Ruang:</strong> Lobi Utama (Tengah) • Zheng He (Kiri) • Uthmaniyah (Kanan) • Analisis & Rumusan (Belakang)</div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="data-zon1.js"></script>
+  <script src="data-zon2.js"></script>
+  <script src="data-zon3.js"></script>
+  <script src="data-zon4.js"></script>
+  <script src="museum-engine.js"></script>
+</body>
+</html>
